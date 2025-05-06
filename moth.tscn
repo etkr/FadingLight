@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://64yr8b4k617d"]
+
+[ext_resource type="Script" uid="uid://2apphaqp1ymc" path="res://Moth.cs" id="1_27pky"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bc02"]
+
+[node name="Moth" type="CharacterBody2D"]
+script = ExtResource("1_27pky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3bc02")
