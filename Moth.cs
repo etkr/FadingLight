@@ -25,7 +25,7 @@ public partial class Moth : CharacterBody2D
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        // Flap wings mouse or touch is pressed
+        // Flap wings when mouse or touch is pressed
         if (@event is InputEventMouseButton or InputEventScreenTouch)
         {
             // Apply upwards impulse when flapping wings
