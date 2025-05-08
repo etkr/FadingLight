@@ -4,25 +4,32 @@ namespace FadingLight;
 
 public partial class Moth : CharacterBody2D
 {
-    private const float Gravity = 200.0f;
-    
+    private static readonly Vector2 InitialVelocity = new(10, 0);
+    private static readonly Vector2 Gravity = new(0, 50);
+    private static readonly Vector2 FlapImpulse = new(0, -10);
+
     public override void _PhysicsProcess(double delta)
     {
-        var velocity = Velocity;
-        velocity.Y += (float)delta * Gravity;
-        Velocity = velocity;
+        // Apply gravity
+        Velocity += Gravity * (float)delta;
 
-        var motion = velocity * (float)delta;
-        MoveAndCollide(motion);
+        // Detect collisions
+        MoveAndCollide(Velocity * (float)delta);
+    }
+
+    public override void _Ready()
+    {
+        // Set initial velocity
+        Velocity += InitialVelocity;
     }
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (@event is InputEventMouseButton)
+        // Flap wings mouse or touch is pressed
+        if (@event is InputEventMouseButton or InputEventScreenTouch)
         {
-            var velocity = Velocity;
-            velocity.Y += 10;
-            Velocity = velocity;
+            // Apply upwards impulse when flapping wings
+            Velocity += FlapImpulse;
         }
     }
 }
