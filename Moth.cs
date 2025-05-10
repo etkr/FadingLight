@@ -14,7 +14,12 @@ public partial class Moth : CharacterBody2D
         Velocity += Gravity * (float)delta;
 
         // Detect collisions
-        MoveAndCollide(Velocity * (float)delta);
+       var collision = MoveAndCollide(Velocity * (float)delta);
+       if (collision is not null)
+       {
+           // Restart level if collided with terrain
+           GetTree().ReloadCurrentScene();
+       }
     }
 
     public override void _Ready()
@@ -32,4 +37,7 @@ public partial class Moth : CharacterBody2D
             Velocity += FlapImpulse;
         }
     }
+    
+    
+    
 }
