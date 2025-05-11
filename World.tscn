@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://64yr8b4k617d"]
+[gd_scene load_steps=4 format=3 uid="uid://64yr8b4k617d"]
 
 [ext_resource type="PackedScene" uid="uid://k66tcgplxk36" path="res://Moth.tscn" id="1_27pky"]
+[ext_resource type="Texture2D" uid="uid://bmdbyd7a6nmst" path="res://Assets/Background1.png" id="2_2dftf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bc02"]
 size = Vector2(20, 174)
 
 [node name="World" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(319.778, 179.875)
+scale = Vector2(2.66481, 2.66481)
+texture = ExtResource("2_2dftf")
 
 [node name="Moth" parent="." instance=ExtResource("1_27pky")]
 

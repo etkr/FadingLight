@@ -16,3 +16,5 @@ shape = SubResource("CircleShape2D_hqtel")
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("2_pwima")
+
+[node name="Camera2D" type="Camera2D" parent="."]
